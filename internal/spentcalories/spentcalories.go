@@ -24,14 +24,14 @@ func parseTraining(data string) (int, string, time.Duration, error) {
   }
   steps, err := strconv.Atoi(parts[0])
   if err != nil {
-    return 0, "", 0, fmt.Errorf("не удалось преобразовать: %v", err)
+    return 0, "", 0, fmt.Errorf("не удалось преобразовать: %w", err)
   }
   if steps <= 0 {
     return 0, "", 0, fmt.Errorf("количество шагов должно быть больше 0")
   }
   duration, err := time.ParseDuration(parts[2])
   if err != nil {
-    return 0, "", 0, fmt.Errorf("не удалось преобразовать время: %v", err)
+    return 0, "", 0, fmt.Errorf("не удалось преобразовать время: %w", err)
   }
   if duration <= 0 {
     return 0, "", 0, fmt.Errorf("продолжительность должна быть больше 0")
